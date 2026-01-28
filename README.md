@@ -1,3 +1,3 @@
-# [jhheider.github.io](https://jhheider.github.io)
+# [heider.cc](https://heider.cc)
 
-Based on [ndoherty-eth/unemployables-portfolio-template](https://github.com/ndoherty-eth/unemployables-portfolio-template)
+Dark, terminal-inspired developer portfolio. Pure HTML/CSS/JS on GitHub Pages.
