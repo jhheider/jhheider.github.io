@@ -1,122 +1,392 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="./assets/images/dottie.jpg" />
+        <title>heider.cc</title>
+        <meta
+            name="description"
+            content="Jacob Heider — software developer, Rust enthusiast, open-source contributor."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8">
-  <link rel="icon" href="./assets/images/dottie.jpg" />
-  <title>Software. Always software.</title>
-  <meta name="description" content="A portfolio template for the Unemployables community.">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
 
-  <link rel="stylesheet" href="./css/layout.css">
-  <link rel="stylesheet" href="./css/typography.css">
-  <link rel="stylesheet" href="./css/utilities.css">
+        <link rel="stylesheet" href="./css/layout.css" />
+        <link rel="stylesheet" href="./css/typography.css" />
+        <link rel="stylesheet" href="./css/utilities.css" />
 
-  <script defer src="./js/script.js"></script>
-</head>
+        <script defer src="./js/script.js"></script>
+    </head>
 
-<body>
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <a class="nav-title-link" href="./index.html">
-      <span class="nav-title">Software. Always software.</span>
-      <a class="button" href="mailto:jhheider@gmail.com">
-        <span class="button-text">Contact Me</span>
-      </a>
-    </a>
-  </div>
-
-  <!-- MAIN PAGE CONTENT -->
-  <div id="main-content">
-
-    <!-- PORTFOLIO HEADER -->
-    <div id="portfolio-header">
-      <div id="portfolio-header-image-container">
-        <img src="./assets/images/dottie.jpg" class="portfolio-header-image">
-      </div>
-
-      <div id="portfolio-header-text-container">
-        <div class="header-text">
-          <span class="main-title">Hey, I'm @jhheider.</span>
-          <div class="body-text">I write code. Any code. I'm not at all picky (about that). I'm not the guy who makes it
-            look pretty, but I'm definitely the guy who can make it work.</div>
-        </div>
-        <a class="button" id="my-work-link">
-          <span class="button-text">Check out my projects</span>
-          <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
-        </a>
-      </div>
-    </div>
-
-    <!-- ABOUT SECTION -->
-    <div id="about-section">
-      <span class="subheader-text">My Background / About Me</span>
-      <div class="about-section-content">
-        <div class="body-text">I'm a software developer. I've always been a software developer, even when I was a
-          network engineer, small business owner, ISP support tech, or small child. I was hooked when I found that <a
-            href="https://en.wikipedia.org/wiki/3-2-1_Contact#Magazine" target="_blank">3-2-1 Contact</a> had programs
-          printed in the
-          back of each issue. It started with AppleBasic on an Apple ][c. This was a long time ago. And I've never lost
-          the bug.
-        </div>
-        <div class="body-text">It's rare to find a problem that can't be improved with computer code. Even extremely
-          human activities can often be automated usefully. One of my first professional positions -- a college
-          internship -- involved cataloging non-standard real-estate assets. Yes, this sounds odd and dull at the same
-          time. I created, I'm ashamed to admit all these years later, a large VisualBasic for Applications application
-          in Microsoft Excel that simplified the management of this data, and allowed for much better analysis of these
-          assets. Since then, I've never stopped automating.</div>
-      </div>
-    </div>
-
-    <!-- PROJECTS / MY WORK SECTION -->
-    <div id="my-work-section">
-      <span class="subheader-text">My Work / My Projects (more soon. never fear.)</span>
-
-      <div class="projects-container">
-        <div class="project-card">
-          <img src="./assets/images/aoc.jpg" class="project-image">
-          <div class="project-card-text-container">
-            <div class="subheader-text project-title">Advent of Code</div>
-            <div class="body-text project-card-text">If you're not doing <a href="https://adventofcode.com/"
-                target="_blank">Advent of Code</a> in December, you're missing out. I use it to keep sharp, and to study
-              languages I aspire to learn. My current aspiration is to spend more time writing Rust, so there's a lot of
-              that there.
+    <body>
+        <!-- NAV -->
+        <nav class="navbar">
+            <a class="nav-title-link" href="#hero"
+                ><span class="prompt">$</span> heider.cc</a
+            >
+            <div class="nav-links">
+                <a href="#ecosystem">Ecosystem</a>
+                <a href="#projects">Projects</a>
+                <a href="#philosophy">Philosophy</a>
+                <a href="#about">About</a>
+                <a href="mailto:jhheider@gmail.com">Contact</a>
             </div>
-            <a class="button" href="./project-pages/aoc.html">
-              <span class="button-text">Read More</span>
-              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
+            <button
+                class="nav-toggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="nav-links"
+            >
+                &#9776;
+            </button>
+        </nav>
+
+        <main>
+            <!-- HERO -->
+            <section id="hero" class="section">
+                <h1 class="terminal-line">
+                    <span class="prompt">&gt;</span> Hey, I'm
+                    <span class="accent">@jhheider</span>.<span
+                        class="cursor"
+                        aria-hidden="true"
+                        >_</span
+                    >
+                </h1>
+                <p class="tagline">
+                    First engineer at
+                    <a
+                        href="https://tea.xyz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="accent-link"
+                        >tea.xyz</a
+                    >. Building the
+                    <a
+                        href="https://pkgx.sh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="accent-link"
+                        >pkgx</a
+                    >
+                    ecosystem in Rust.<br />I pay the cost of correctness up
+                    front — the compiler is my first code reviewer.
+                </p>
+            </section>
+
+            <!-- ECOSYSTEM -->
+            <section id="ecosystem" class="section">
+                <h2 class="section-title">
+                    <span class="prompt">#</span> The pkgx Ecosystem
+                </h2>
+                <p class="section-intro">
+                    The platform I build and build with.
+                </p>
+                <ul class="tree" role="list">
+                    <li class="tree-item">
+                        <a
+                            href="https://github.com/pkgxdev/pantry"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >pkgxdev/pantry</a
+                        >
+                        <span class="tree-desc"
+                            >— Top contributor (2,800+ contributions). ~1,600
+                            package manifests powering pkgx.</span
+                        >
+                    </li>
+                    <li class="tree-item">
+                        <a
+                            href="https://github.com/pkgxdev/pkgx"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >pkgxdev/pkgx</a
+                        >
+                        <span class="tree-desc"
+                            >— The package execution runtime. Run anything.
+                            Install nothing.</span
+                        >
+                    </li>
+                    <li class="tree-item">
+                        <a
+                            href="https://github.com/pkgxdev/dev"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >pkgxdev/dev</a
+                        >
+                        <span class="tree-desc"
+                            >— Developer environment manager. Per-project
+                            toolchains, automatically.</span
+                        >
+                    </li>
+                    <li class="tree-item">
+                        <a
+                            href="https://github.com/pkgxdev/brewkit"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >pkgxdev/brewkit</a
+                        >
+                        <span class="tree-desc"
+                            >— Build tooling for the pantry. How packages get
+                            built and tested.</span
+                        >
+                    </li>
+                    <li class="tree-item last">
+                        <a
+                            href="https://github.com/pkgxdev/mash"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >pkgxdev/mash</a
+                        >
+                        <span class="tree-desc"
+                            >— Scripting wrapper with auto-installing
+                            dependencies via pkgx.</span
+                        >
+                    </li>
+                </ul>
+            </section>
+
+            <!-- PROJECTS -->
+            <section id="projects" class="section">
+                <h2 class="section-title">
+                    <span class="prompt">#</span> Featured Projects
+                </h2>
+                <div class="project-grid">
+                    <div
+                        class="project-card"
+                        data-href="https://github.com/jhheider/semverator"
+                    >
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">semverator</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Rust CLI for semantic version comparison.
+                                Originally built to interface with pkgx's semver
+                                implementation via the command line — then
+                                became the core library for the v2 Rust rewrite.
+                            </p>
+                            <a
+                                href="https://github.com/jhheider/semverator"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="card-link"
+                                >View on GitHub</a
+                            >
+                        </div>
+                    </div>
+
+                    <div
+                        class="project-card"
+                        data-href="https://github.com/jhheider/gpg-inspector"
+                    >
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">gpg-inspector</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Rust TUI for inspecting GPG messages. Built to
+                                aid key analysis for
+                                <a
+                                    href="https://tea.xyz"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-link"
+                                    >tea.xyz</a
+                                >'s blockchain — parse and explore OpenPGP
+                                packet structure interactively.
+                            </p>
+                            <a
+                                href="https://github.com/jhheider/gpg-inspector"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="card-link"
+                                >View on GitHub</a
+                            >
+                        </div>
+                    </div>
+
+                    <div
+                        class="project-card"
+                        data-href="https://github.com/jhheider/tea-gpg-wallet"
+                    >
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">tea-gpg-wallet</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                CLI interface for tea's GPG wallet system. Lets
+                                payees and payors interact with
+                                <a
+                                    href="https://tea.xyz"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-link"
+                                    >tea.xyz</a
+                                >'s blockchain payment infrastructure from the
+                                command line.
+                            </p>
+                            <a
+                                href="https://github.com/jhheider/tea-gpg-wallet"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="card-link"
+                                >View on GitHub</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHILOSOPHY -->
+            <section id="philosophy" class="section">
+                <h2 class="section-title">
+                    <span class="prompt">#</span> On Software
+                </h2>
+                <div class="philosophy-list">
+                    <blockquote>
+                        <span class="prompt" aria-hidden="true">&gt;</span> Rust
+                        is not the devil, nor the messiah. It's a tool — a
+                        powerful, occasionally frustrating, remarkably
+                        well-designed tool. The choice isn't between safety and
+                        productivity. It's between <em>when</em> you pay the
+                        cost of correctness.
+                    </blockquote>
+                    <blockquote>
+                        <span class="prompt" aria-hidden="true">&gt;</span> I
+                        reach for Rust first for anything that's going to
+                        outlive the end of my day. But I've also walked away
+                        from it when it wasn't right. The decision should be
+                        engineering, not religion.
+                    </blockquote>
+                    <blockquote>
+                        <span class="prompt" aria-hidden="true">&gt;</span> The
+                        borrow checker doesn't teach you good architecture. It
+                        enforces certain constraints, but I've seen plenty of
+                        Rust code wrapped in so many Arc&lt;Mutex&lt;T&gt;&gt;
+                        layers that it's basically garbage collection with extra
+                        steps.
+                    </blockquote>
+                    <blockquote>
+                        <span class="prompt" aria-hidden="true">&gt;</span> If
+                        you do it twice, script it. If you script it twice, ship
+                        it. I've been automating since a college internship in
+                        VisualBasic — I've never stopped.
+                    </blockquote>
+                </div>
+                <p class="philosophy-link">
+                    Full essay:
+                    <a
+                        href="https://medium.com/@jhheider/rust-is-not-the-devil-nor-the-messiah-252d11f19060"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="accent-link"
+                        >Rust is Not the Devil, Nor the Messiah</a
+                    >
+                </p>
+            </section>
+
+            <!-- ABOUT -->
+            <section id="about" class="section">
+                <h2 class="section-title">
+                    <span class="prompt">#</span> About
+                </h2>
+                <div class="about-content">
+                    <p>
+                        I've been writing software since I found programs
+                        printed in the back of
+                        <a
+                            href="https://en.wikipedia.org/wiki/3-2-1_Contact#Magazine"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >3-2-1 Contact</a
+                        >
+                        and typed them into an Apple ][c. Decades later, I was
+                        the first engineer hired by the founders of
+                        <a
+                            href="https://tea.xyz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >tea.xyz</a
+                        >, where I helped advocate for a complete rewrite from
+                        Deno to Rust, because it was the right choice for that
+                        project.
+                    </p>
+                    <p>
+                        In between: network engineering, ISP support, small
+                        businesses, and a plethora of full-stack dev. The
+                        through-line is the same: find a problem, write code,
+                        ship it.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="footer">
+            <a
+                href="https://github.com/jhheider"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link"
+            >
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                    />
+                </svg>
+                <span>GitHub</span>
             </a>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="./assets/images/semverator.png" class="project-image">
-          <div class="project-card-text-container">
-            <div class="subheader-text project-title">semverator</div>
-            <div class="body-text project-card-text">A simple Rust CLI tool to implement teaxyz/cli's `semver.ts` for
-              improved testing.
-            </div>
-            <a class="button" href="./project-pages/semverator.html">
-              <span class="button-text">Read More</span>
-              <image src="./assets/icons/arrow-right.svg" class="right-arrow-icon" />
+            <a href="mailto:jhheider@gmail.com" class="footer-link">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M22 4L12 13 2 4" />
+                </svg>
+                <span>Email</span>
             </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div id="footer">
-      <a class="icon-link" target="_blank" href="https://www.instagram.com/jhheider/">
-        <image src="./assets/icons/instagram.svg" class="footer-icon" />
-      </a>
-      <a class="icon-link" target="_blank" href="https://twitter.com/jacobheider">
-        <image src="./assets/icons/twitter.svg" class="footer-icon" />
-      </a>
-      <a class="icon-link" href="mailto:jhheider@gmail.com">
-        <image src="./assets/icons/mail.svg" class="footer-icon" />
-      </a>
-    </div>
-
-</body>
-
+        </footer>
+    </body>
 </html>

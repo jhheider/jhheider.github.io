@@ -1,49 +1,139 @@
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.nav-title {
-  font-weight: 700;
-  font-size: 24px;
-}
-
-.button-text {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.image-caption {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.main-title {
-  font-size: 40px;
-  font-weight: 700;
-}
-
-.subheader-text {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.body-text {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 16px;
-  font-weight: 500;
+  line-height: 1.7;
 }
 
-.project-card-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
+.nav-title-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
 }
 
-.project-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: var(--accent-blue);
+}
+
+.prompt {
+  color: var(--accent-green);
+  font-weight: 700;
+}
+
+h1.terminal-line {
+  font-size: clamp(24px, 5vw, 40px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.accent {
+  color: var(--accent-blue);
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+  color: var(--accent-green);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+
+.tagline {
+  color: var(--text-secondary);
+  font-size: 16px;
+  max-width: 640px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.section-intro {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.tree-desc {
+  color: var(--text-secondary);
+}
+
+.accent-link {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.accent-link:hover {
+  text-decoration: underline;
+}
+
+.card-filename {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.card-body p {
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.inline-link {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
+.card-link {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+blockquote {
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent-green);
+  padding-left: var(--space-md);
+}
+
+blockquote em {
+  color: var(--accent-blue);
+  font-style: italic;
+}
+
+.philosophy-link {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.about-content p {
+  color: var(--text-secondary);
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-link:hover {
+  color: var(--accent-blue);
 }
