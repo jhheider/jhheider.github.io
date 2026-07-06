@@ -19,7 +19,7 @@ toggle.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', String(open));
 });
 
-// Project card click — navigate to data-href unless clicking a link inside
+// Project card click: navigate to data-href unless clicking a link inside
 document.querySelectorAll('.project-card[data-href]').forEach(card => {
   card.addEventListener('click', e => {
     if (e.target.closest('a')) return;
