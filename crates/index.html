@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="icon" href="../assets/images/dottie.jpg" />
-        <title>Rust crates — heider.cc</title>
+        <title>Rust crates - heider.cc</title>
         <meta
             name="description"
             content="Jacob Heider's published Rust libraries: lossless config editing, OpenPGP parsing, WebAuthn verification, audio time-stretch, and API clients. Lean dependency trees, rustls + ring, no C."
@@ -88,7 +88,7 @@
                                 <code>edikt-yaml</code> ·
                                 <code>edikt-kdl</code> ·
                                 <code>edikt-ini</code> ·
-                                <code>edikt-env</code> — on the shared
+                                <code>edikt-env</code> - on the shared
                                 <code>edikt-syntax</code> rowan substrate.
                             </p>
                             <pre><span class="p">$</span> cargo add edikt-core edikt-toml</pre>
@@ -114,7 +114,7 @@
                         </div>
                         <div class="card-body">
                             <p>
-                                Parse and inspect OpenPGP packet structure —
+                                Parse and inspect OpenPGP packet structure -
                                 RFC 4880 and RFC 9580, old and new formats,
                                 v4/v6 keys, computed fingerprints and key
                                 IDs, optional decompression of nested
@@ -147,7 +147,7 @@
                                 Async client for Govee's v2 router-based API:
                                 device and group discovery, power,
                                 brightness, color, scenes, and per-segment
-                                control — with retries, exponential backoff,
+                                control - with retries, exponential backoff,
                                 and typed rate-limit errors handled for you.
                                 The engine behind govee-tui.
                             </p>
@@ -222,6 +222,38 @@
                         </div>
                     </div>
 
+                    <div class="project-card" data-href="https://crates.io/crates/wsola">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">wsola</span>
+                            <span class="version" data-crate="wsola">v…</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Pitch-preserved audio time-stretch (WSOLA) -
+                                pure Rust, one dependency, no C. Speed a
+                                podcast to 1.5x without the chipmunk effect.
+                                Streaming and one-shot APIs, property-tested
+                                to be bit-identical between the two. Born
+                                inside
+                                <a href="../pdcst/" class="inline-link">pdcst</a>;
+                                published independently.
+                            </p>
+                            <pre><span class="p">$</span> cargo add wsola</pre>
+                            <span>
+                                <a href="https://crates.io/crates/wsola" target="_blank" rel="noopener noreferrer" class="card-link">crates.io</a>
+                                &middot;
+                                <a href="https://docs.rs/wsola" target="_blank" rel="noopener noreferrer" class="card-link">docs.rs</a>
+                                &middot;
+                                <a href="https://github.com/jhheider/pdcst" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+                            </span>
+                        </div>
+                    </div>
+
                     <div class="project-card" data-href="https://crates.io/crates/libsemverator">
                         <div class="card-titlebar">
                             <span class="card-dots" aria-hidden="true"
@@ -236,7 +268,7 @@
                             <p>
                                 Semantic version parsing, comparison, and
                                 range handling with pkgx-compatible semantics
-                                — a pure-Rust port of libpkgx's semver.
+                                - a pure-Rust port of libpkgx's semver.
                                 Ships as both rlib and cdylib (FFI-friendly),
                                 with optional serde support. The core of the
                                 semverator CLI.
@@ -267,34 +299,6 @@
                                 ><span class="dot yellow"></span
                                 ><span class="dot green"></span
                             ></span>
-                            <span class="card-filename">wsola</span>
-                            <span class="version" data-crate="wsola"></span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                Pitch-preserved audio time-stretch (WSOLA) —
-                                pure Rust, one dependency, no C. Speed a
-                                podcast to 1.5x without the chipmunk effect.
-                                Streaming and one-shot APIs, property-tested
-                                to be bit-identical between the two. Born
-                                inside
-                                <a href="../pdcst/" class="inline-link">pdcst</a>
-                                (now in public preview); publishes
-                                independently.
-                            </p>
-                            <span>
-                                <a href="https://github.com/jhheider/pdcst" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="project-card pending">
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
                             <span class="card-filename">passkeep</span>
                             <span class="version" data-crate="passkeep"></span>
                         </div>
@@ -305,7 +309,7 @@
                                 ceremonies with no C crypto in the tree
                                 (ring, or fully pure-Rust via RustCrypto).
                                 Holding for a security review and test
-                                vectors before its first release — auth code
+                                vectors before its first release - auth code
                                 should earn its way onto crates.io.
                             </p>
                             <span>
@@ -341,7 +345,7 @@
         </footer>
 
         <script>
-            // Live versions from crates.io — never bake a version into the page.
+            // Live versions from crates.io - never bake a version into the page.
             // Pipeline cards ("pending") self-heal: the badge appears the
             // moment the crate is published.
             document.querySelectorAll(".version[data-crate]").forEach(async (el) => {

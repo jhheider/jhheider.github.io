@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>edikt — edit config files without reflowing them</title>
+        <title>edikt - edit config files without reflowing them</title>
         <meta
             name="description"
             content="Lossless, format-preserving config editor for JSONC, JSON5, TOML, YAML, KDL, INI, and .env. jq-flavored expressions, sed-shaped execution. Only the bytes you target change."
@@ -53,7 +53,7 @@
                     edikt is a lossless, format-preserving config editor:
                     jq-flavored expressions, sed-shaped execution, seven
                     formats. It changes
-                    <strong>only the bytes you point at</strong> — every
+                    <strong>only the bytes you point at</strong> - every
                     comment, indent, quote style, and trailing comma you
                     didn't touch survives byte-for-byte.
                 </p>
@@ -72,7 +72,7 @@
                         rel="noopener noreferrer"
                         >prebuilt binary</a
                     >
-                    — Linux, macOS, Windows; x86_64 and arm64. MIT or
+                    - Linux, macOS, Windows; x86_64 and arm64. MIT or
                     Apache-2.0.
                 </p>
             </section>
@@ -83,7 +83,7 @@
                 <h2>One value changes. Nothing else moves.</h2>
                 <p>
                     Your <code>tsconfig.json</code> has comments,
-                    hand-alignment, and trailing commas — the things most
+                    hand-alignment, and trailing commas - the things most
                     tools destroy on the way through a parser. edikt edits
                     the tree but writes back the file.
                 </p>
@@ -104,13 +104,13 @@
      "outDir": "./dist",</pre>
                 </div>
                 <p class="caption">
-                    A one-line diff, comments intact — instead of "the tool
+                    A one-line diff, comments intact - instead of "the tool
                     reformatted the whole file."
                 </p>
 
                 <div class="term">
                     <pre>
-<span class="cmt"># query, jq-style — any supported format</span>
+<span class="cmt"># query, jq-style - any supported format</span>
 <span class="p">$</span> edikt '.compilerOptions.strict' tsconfig.json
 <span class="out">true</span>
 
@@ -118,7 +118,7 @@
 <span class="p">$</span> edikt -i '.version |= . + "-dev"' package.jsonc
 <span class="p">$</span> cat settings.jsonc | edikt -t jsonc 'del(.telemetry) | .theme = "dark"'
 
-<span class="cmt"># convert between formats — comments carried across</span>
+<span class="cmt"># convert between formats - comments carried across</span>
 <span class="p">$</span> edikt -T yaml tsconfig.jsonc
 
 <span class="cmt"># bump every crate in a Cargo workspace</span>
@@ -158,7 +158,7 @@
                 <p>
                     Every other tool treats comments as debris to preserve at
                     best. edikt makes them
-                    <strong>addressable, queryable, and editable</strong> —
+                    <strong>addressable, queryable, and editable</strong> -
                     a dimension of the document, with their own sigil.
                 </p>
 
@@ -188,7 +188,7 @@
                     <li>
                         <span>
                             <strong>sed-shaped exit codes.</strong> A query
-                            matching nothing is a silent no-op — safe under
+                            matching nothing is a silent no-op - safe under
                             <code>set -e</code>. <code>--exit-status</code>
                             opts into jq's behavior when you want it.
                         </span>
@@ -208,7 +208,7 @@
                             <code>//</code> defaults, <code>|=</code>
                             update-assign, <code>del()</code>, regex
                             <code>test</code>/<code>sub</code>/<code>gsub</code>,
-                            <code>split</code>/<code>join</code> — a curated
+                            <code>split</code>/<code>join</code> - a curated
                             v1 surface, not a dialect that surprises you.
                         </span>
                     </li>
@@ -223,9 +223,9 @@
                     <li>
                         <span>
                             <strong>A library, too.</strong> The CLI sits on
-                            independently published crates —
+                            independently published crates -
                             <code>edikt-core</code> plus a lossless
-                            <code>Document</code> implementation per format —
+                            <code>Document</code> implementation per format -
                             if you'd rather do this from Rust.
                             <a href="../crates/">See the crates</a>.
                         </span>
@@ -249,7 +249,7 @@
                     <em>and</em> the comments.
                 </p>
                 <blockquote>
-                    Surgically change one value — or one comment — and leave
+                    Surgically change one value - or one comment - and leave
                     every other byte alone. Not just for YAML, but for the
                     whole pile of config formats a project accumulates.
                 </blockquote>
@@ -259,7 +259,7 @@
                     <code>prettier</code> for formatting, and the excellent
                     <code>toml_edit</code> and <code>kdl-rs</code> for
                     lossless edits (edikt is <em>built on</em> those last
-                    two). edikt isn't trying to replace them — it's the piece
+                    two). edikt isn't trying to replace them - it's the piece
                     that wasn't on the shelf: one tool that edits
                     <strong>and</strong> queries <strong>and</strong>
                     converts, across all of these, touching only the bytes
