@@ -1,0 +1,109 @@
+// Installer template for heider.cc tools.
+//
+// Compiled per tool by gen-installers.sh (Amber -> bash) into /<name>.sh at
+// the site root, served as `curl -fsSL https://heider.cc/<name>.sh | sh`.
+// Do not edit the generated .sh files by hand; edit this and regenerate.
+//
+// Relies on the uniform jhheider release asset naming:
+//   <name>-{linux,macos}-{aarch64,x86_64}.tar.gz
+
+import { has_failed } from "std/env"
+
+const name = "__NAME__"
+const repo = "__REPO__"
+
+fun get_os(): Text {
+    const os_type = $ uname -s $ failed {
+        echo("{name}: failed to detect OS (is `uname` available?)")
+        exit(1)
+    }
+    if os_type == "Darwin":
+        return "macos"
+    if os_type != "Linux" {
+        echo("{name}: unsupported OS: {os_type}")
+        echo("Prebuilt binaries for other platforms live at:")
+        echo("  https://github.com/{repo}/releases/latest")
+        exit(1)
+    }
+    return "linux"
+}
+
+fun get_arch(): Text {
+    const arch_type = $ uname -m $ failed {
+        echo("{name}: failed to detect CPU architecture.")
+        exit(1)
+    }
+    if arch_type == "arm64":
+        return "aarch64"
+    if arch_type == "aarch64":
+        return "aarch64"
+    if arch_type != "x86_64" {
+        echo("{name}: unsupported architecture: {arch_type}")
+        echo("Prebuilt binaries live at:")
+        echo("  https://github.com/{repo}/releases/latest")
+        exit(1)
+    }
+    return "x86_64"
+}
+
+main {
+    if has_failed("curl -V") {
+        echo("{name}: `curl` is required. Please install it and try again.")
+        exit(1)
+    }
+
+    const home = trust $ echo \$HOME $
+    if home == "" {
+        echo("{name}: unable to determine your home directory ($HOME).")
+        exit(1)
+    }
+
+    const os = get_os()
+    const arch = get_arch()
+    const asset = "{name}-{os}-{arch}.tar.gz"
+    const url = "https://github.com/{repo}/releases/latest/download/{asset}"
+    const bin_dir = "{home}/.local/bin"
+
+    const tmp = $ mktemp -d $ failed {
+        echo("{name}: failed to create a temporary directory.")
+        exit(1)
+    }
+
+    echo("Downloading {asset} from the latest {repo} release...")
+    silent $ curl -fL -o "{tmp}/{asset}" "{url}" $ failed {
+        echo("{name}: download failed: {url}")
+        echo("Check https://github.com/{repo}/releases/latest for assets.")
+        exit(1)
+    }
+
+    silent $ tar -xzf "{tmp}/{asset}" -C "{tmp}" $ failed {
+        echo("{name}: failed to unpack {asset}.")
+        exit(1)
+    }
+
+    silent $ mkdir -p "{bin_dir}" $ failed {
+        echo("{name}: failed to create {bin_dir}.")
+        exit(1)
+    }
+
+    $ mv "{tmp}/{name}" "{bin_dir}/{name}" $ failed {
+        echo("{name}: failed to move the binary into {bin_dir}.")
+        exit(1)
+    }
+
+    $ chmod +x "{bin_dir}/{name}" $ failed {
+        echo("{name}: failed to mark {bin_dir}/{name} executable.")
+        exit(1)
+    }
+
+    trust silent $ rm -rf "{tmp}" $
+
+    const version = trust $ "{bin_dir}/{name}" --version $
+    echo("Installed {version} -> {bin_dir}/{name}")
+
+    silent $ echo ":\$PATH:" | grep -q ":{bin_dir}:" $ failed {
+        echo("")
+        echo("Note: {bin_dir} is not on your PATH. Add this to your shell rc:")
+        echo("  export PATH=\"{bin_dir}:$PATH\"")
+    }
+}

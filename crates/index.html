@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="../assets/images/dottie.jpg" />
+        <title>Rust crates — heider.cc</title>
+        <meta
+            name="description"
+            content="Jacob Heider's published Rust libraries: lossless config editing, OpenPGP parsing, WebAuthn verification, audio time-stretch, and API clients. Lean dependency trees, rustls + ring, no C."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="../css/layout.css" />
+        <link rel="stylesheet" href="../css/typography.css" />
+        <link rel="stylesheet" href="../css/utilities.css" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+
+    <body>
+        <!-- NAV -->
+        <nav class="navbar">
+            <a class="nav-title-link" href="../"
+                ><span class="prompt">$</span> heider.cc</a
+            >
+            <div class="crates-nav">
+                <a href="#published">Published</a>
+                <a href="#pipeline">In the pipeline</a>
+                <a href="../">Home</a>
+            </div>
+        </nav>
+
+        <main>
+            <!-- HEADER -->
+            <section class="page-header">
+                <h1 class="terminal-line">
+                    <span class="prompt">&gt;</span> cargo add
+                    <span class="accent">something useful</span><span
+                        class="cursor"
+                        aria-hidden="true"
+                        >_</span
+                    >
+                </h1>
+                <p class="tagline">
+                    The library crates behind my tools, published for anyone
+                    to build on. House rules across all of them: lean
+                    dependency trees, rustls + ring for TLS, and no C
+                    toolchains hiding in your build.
+                </p>
+            </section>
+
+            <!-- PUBLISHED -->
+            <section id="published" class="section">
+                <h2 class="section-title">
+                    <span class="prompt">#</span> Published
+                </h2>
+                <div class="crate-grid">
+                    <div class="project-card" data-href="https://crates.io/crates/edikt-core">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">edikt-core</span>
+                            <span class="version" data-crate="edikt-core">v…</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Lossless config editing as a library: the
+                                value model, jq-flavored expression engine,
+                                and the <code>Document</code>/<code>Convert</code>
+                                seams behind
+                                <a href="../edikt/" class="inline-link">edikt</a>.
+                                Pair it with a format crate and edit files
+                                without disturbing a byte you didn't target.
+                            </p>
+                            <p class="subcrates">
+                                Format implementations, each independently
+                                published: <code>edikt-jsonc</code> ·
+                                <code>edikt-toml</code> ·
+                                <code>edikt-yaml</code> ·
+                                <code>edikt-kdl</code> ·
+                                <code>edikt-ini</code> ·
+                                <code>edikt-env</code> — on the shared
+                                <code>edikt-syntax</code> rowan substrate.
+                            </p>
+                            <pre><span class="p">$</span> cargo add edikt-core edikt-toml</pre>
+                            <span>
+                                <a href="https://crates.io/crates/edikt-core" target="_blank" rel="noopener noreferrer" class="card-link">crates.io</a>
+                                &middot;
+                                <a href="https://docs.rs/edikt-core" target="_blank" rel="noopener noreferrer" class="card-link">docs.rs</a>
+                                &middot;
+                                <a href="https://github.com/jhheider/edikt" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-href="https://crates.io/crates/gpg-inspector-lib">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">gpg-inspector-lib</span>
+                            <span class="version" data-crate="gpg-inspector-lib">v…</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Parse and inspect OpenPGP packet structure —
+                                RFC 4880 and RFC 9580, old and new formats,
+                                v4/v6 keys, computed fingerprints and key
+                                IDs, optional decompression of nested
+                                packets. Introspect keys and signatures
+                                without shelling out to <code>gpg</code>.
+                            </p>
+                            <pre><span class="p">$</span> cargo add gpg-inspector-lib</pre>
+                            <span>
+                                <a href="https://crates.io/crates/gpg-inspector-lib" target="_blank" rel="noopener noreferrer" class="card-link">crates.io</a>
+                                &middot;
+                                <a href="https://docs.rs/gpg-inspector-lib" target="_blank" rel="noopener noreferrer" class="card-link">docs.rs</a>
+                                &middot;
+                                <a href="https://github.com/jhheider/gpg-inspector" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-href="https://crates.io/crates/govee-api2">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">govee-api2</span>
+                            <span class="version" data-crate="govee-api2">v…</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Async client for Govee's v2 router-based API:
+                                device and group discovery, power,
+                                brightness, color, scenes, and per-segment
+                                control — with retries, exponential backoff,
+                                and typed rate-limit errors handled for you.
+                                The engine behind govee-tui.
+                            </p>
+                            <pre><span class="p">$</span> cargo add govee-api2</pre>
+                            <span>
+                                <a href="https://crates.io/crates/govee-api2" target="_blank" rel="noopener noreferrer" class="card-link">crates.io</a>
+                                &middot;
+                                <a href="https://docs.rs/govee-api2" target="_blank" rel="noopener noreferrer" class="card-link">docs.rs</a>
+                                &middot;
+                                <a href="https://github.com/jhheider/govee-tui" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-href="https://crates.io/crates/penknife-gist">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">penknife-gist</span>
+                            <span class="version" data-crate="penknife-gist">v…</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                A GitHub Gist API client with retry,
+                                rate-limit, and pagination handling built in.
+                                Extracted from
+                                <a href="../penknife/" class="inline-link">penknife</a>,
+                                where it powers gist sync and drift tracking.
+                            </p>
+                            <pre><span class="p">$</span> cargo add penknife-gist</pre>
+                            <span>
+                                <a href="https://crates.io/crates/penknife-gist" target="_blank" rel="noopener noreferrer" class="card-link">crates.io</a>
+                                &middot;
+                                <a href="https://docs.rs/penknife-gist" target="_blank" rel="noopener noreferrer" class="card-link">docs.rs</a>
+                                &middot;
+                                <a href="https://github.com/jhheider/penknife" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-href="https://crates.io/crates/wayfinder-core">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">wayfinder-core</span>
+                            <span class="version" data-crate="wayfinder-core">v…</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Client, cache, search, and rendering for
+                                Archives of Nethys Pathfinder 2e / Starfinder
+                                2e data: an Elasticsearch query builder,
+                                SQLite cache with per-category TTLs, and a
+                                renderer that turns AON HTML into structured
+                                content blocks. Build your own PF2e tooling
+                                on top.
+                            </p>
+                            <pre><span class="p">$</span> cargo add wayfinder-core</pre>
+                            <span>
+                                <a href="https://crates.io/crates/wayfinder-core" target="_blank" rel="noopener noreferrer" class="card-link">crates.io</a>
+                                &middot;
+                                <a href="https://docs.rs/wayfinder-core" target="_blank" rel="noopener noreferrer" class="card-link">docs.rs</a>
+                                &middot;
+                                <a href="https://github.com/jhheider/wayfinder" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-href="https://crates.io/crates/libsemverator">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">libsemverator</span>
+                            <span class="version" data-crate="libsemverator">v…</span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Semantic version parsing, comparison, and
+                                range handling with pkgx-compatible semantics
+                                — a pure-Rust port of libpkgx's semver.
+                                Ships as both rlib and cdylib (FFI-friendly),
+                                with optional serde support. The core of the
+                                semverator CLI.
+                            </p>
+                            <pre><span class="p">$</span> cargo add libsemverator</pre>
+                            <span>
+                                <a href="https://crates.io/crates/libsemverator" target="_blank" rel="noopener noreferrer" class="card-link">crates.io</a>
+                                &middot;
+                                <a href="https://docs.rs/libsemverator" target="_blank" rel="noopener noreferrer" class="card-link">docs.rs</a>
+                                &middot;
+                                <a href="https://github.com/jhheider/semverator" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PIPELINE -->
+            <section id="pipeline" class="section">
+                <h2 class="section-title">
+                    <span class="prompt">#</span> In the pipeline
+                </h2>
+                <div class="crate-grid">
+                    <div class="project-card pending">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">wsola</span>
+                            <span class="version" data-crate="wsola"></span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Pitch-preserved audio time-stretch (WSOLA) —
+                                pure Rust, one dependency, no C. Speed a
+                                podcast to 1.5x without the chipmunk effect.
+                                Streaming and one-shot APIs, property-tested
+                                to be bit-identical between the two. Born
+                                inside
+                                <a href="../pdcst/" class="inline-link">pdcst</a>
+                                (now in public preview); publishes
+                                independently.
+                            </p>
+                            <span>
+                                <a href="https://github.com/jhheider/pdcst" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="project-card pending">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">passkeep</span>
+                            <span class="version" data-crate="passkeep"></span>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                A small, pure-Rust WebAuthn relying party:
+                                verify passkey registration and assertion
+                                ceremonies with no C crypto in the tree
+                                (ring, or fully pure-Rust via RustCrypto).
+                                Holding for a security review and test
+                                vectors before its first release — auth code
+                                should earn its way onto crates.io.
+                            </p>
+                            <span>
+                                <a href="https://github.com/jhheider/passkeep" target="_blank" rel="noopener noreferrer" class="card-link">GitHub</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <p class="section-note">
+                    Every published crate above releases through the same
+                    <a
+                        href="https://github.com/jhheider/rust-ci"
+                        class="accent-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >reusable CI pipeline</a
+                    >: tested on a matrix, clippy-clean, and
+                    coverage-tracked before it ships.
+                </p>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="footer">
+            <a href="../" class="footer-link"><span>← heider.cc</span></a>
+            <a
+                href="https://crates.io/users/jhheider"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link"
+                ><span>all crates on crates.io</span></a
+            >
+        </footer>
+
+        <script>
+            // Live versions from crates.io — never bake a version into the page.
+            // Pipeline cards ("pending") self-heal: the badge appears the
+            // moment the crate is published.
+            document.querySelectorAll(".version[data-crate]").forEach(async (el) => {
+                try {
+                    const res = await fetch(
+                        `https://crates.io/api/v1/crates/${el.dataset.crate}`,
+                    );
+                    if (!res.ok) return;
+                    const { crate } = await res.json();
+                    const v = crate.max_stable_version || crate.max_version;
+                    if (v) el.textContent = `v${v}`;
+                } catch {
+                    /* offline or blocked: fall back to static text */
+                }
+            });
+
+            document
+                .querySelectorAll(".project-card[data-href]")
+                .forEach((card) => {
+                    card.addEventListener("click", (e) => {
+                        if (e.target.closest("a")) return;
+                        window.open(
+                            card.dataset.href,
+                            "_blank",
+                            "noopener,noreferrer",
+                        );
+                    });
+                });
+        </script>
+    </body>
+</html>

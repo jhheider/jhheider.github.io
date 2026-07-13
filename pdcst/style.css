@@ -1,0 +1,430 @@
+/* pdcst — the listening room. Dark, warm amber, waveform. */
+
+:root {
+  --bg: #100d0a;
+  --bg-raised: #1a1512;
+  --line: #2d2620;
+  --fg: #ede4d8;
+  --dim: #9c8f7f;
+  --amber: #ffb454;
+  --amber-deep: #d98324;
+  --green: #9ece6a;
+  --wave-lo: #4a3a26;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Outfit', 'Avenir Next', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+code,
+pre,
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+a {
+  color: var(--amber);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* Top bar */
+.topbar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--fg);
+  letter-spacing: 0.06em;
+}
+
+.wordmark:hover {
+  text-decoration: none;
+}
+
+.wordmark .tick {
+  color: var(--amber);
+}
+
+.topbar nav {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.topbar nav a {
+  color: var(--dim);
+}
+
+.topbar nav a:hover {
+  color: var(--amber);
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  padding: 68px 0 44px;
+  text-align: left;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--amber);
+  border: 1px solid var(--amber-deep);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+
+.status-pill .pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: 0.25; }
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 64px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 13em;
+}
+
+.hero h1 .accent {
+  color: var(--amber);
+}
+
+.hero .dek {
+  margin-top: 22px;
+  font-size: 19px;
+  color: var(--dim);
+  max-width: 33em;
+}
+
+.hero .dek strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* Waveform divider */
+.wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 46px;
+  margin: 40px 0 0;
+}
+
+.wave span {
+  flex: 1;
+  background: var(--wave-lo);
+  border-radius: 2px 2px 0 0;
+}
+
+.wave span.hot {
+  background: var(--amber);
+}
+
+/* Install / status block */
+.install-note {
+  margin-top: 36px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+
+.install-note h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+
+.install-note p {
+  font-size: 15px;
+  color: var(--dim);
+}
+
+.install-note pre {
+  margin-top: 14px;
+  background: var(--bg);
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 13.5px;
+  color: var(--dim);
+  overflow-x: auto;
+}
+
+.install-note pre .p {
+  color: var(--amber-deep);
+}
+
+/* Sections */
+section {
+  padding: 52px 0;
+  border-top: 1px solid var(--line);
+}
+
+.kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+section > p {
+  color: var(--dim);
+  max-width: 38em;
+  margin-bottom: 14px;
+}
+
+section > p strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* Player mock */
+.player {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: 28px 0;
+  overflow: hidden;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+}
+
+.player-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--dim);
+}
+
+.player-title .dots {
+  display: flex;
+  gap: 6px;
+}
+
+.player-title .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.player pre {
+  padding: 18px 20px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  overflow-x: auto;
+  color: var(--fg);
+}
+
+.player .dim { color: var(--dim); }
+.player .amb { color: var(--amber); }
+.player .grn { color: var(--green); }
+.player .sel {
+  background: rgba(255, 180, 84, 0.1);
+  display: inline-block;
+  width: 100%;
+}
+
+.caption {
+  font-size: 14px;
+  color: var(--dim);
+  font-style: italic;
+  margin-top: -16px;
+  margin-bottom: 24px;
+}
+
+img.demo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: 28px 0;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+}
+
+/* Feature cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.card h3 .key {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  background: var(--line);
+  color: var(--amber);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-right: 8px;
+}
+
+.card p {
+  font-size: 14.5px;
+  color: var(--dim);
+}
+
+/* Keys table */
+.keys {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 8px 28px;
+  font-size: 14.5px;
+  max-width: 46em;
+}
+
+.keys div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px dotted var(--line);
+  padding: 5px 0;
+  color: var(--dim);
+}
+
+.keys kbd {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--amber);
+  font-size: 13px;
+}
+
+/* Quote */
+blockquote {
+  border-left: 3px solid var(--amber);
+  padding-left: 20px;
+  margin: 24px 0;
+  color: var(--fg);
+  font-size: 18px;
+  max-width: 34em;
+}
+
+blockquote .cite {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--dim);
+  font-style: normal;
+}
+
+/* Footer */
+footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 26px 24px 48px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--dim);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--dim);
+}
+
+footer a:hover {
+  color: var(--amber);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .status-pill .pulse {
+    animation: none;
+  }
+}

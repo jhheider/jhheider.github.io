@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>pdcst — the queue fills itself</title>
+        <meta
+            name="description"
+            content="A keyboard-driven terminal podcast player in pure Rust. An auto-managed Up Next queue, pitch-corrected speed, and streaming playback. Now in public preview."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="../assets/images/dottie.jpg" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+
+    <body>
+        <header class="topbar">
+            <a class="wordmark" href="./">pdcst<span class="tick">▶</span></a>
+            <nav>
+                <a
+                    href="https://github.com/jhheider/pdcst"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub</a
+                >
+                <a href="../crates/">wsola</a>
+                <a href="../">heider.cc</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- HERO -->
+            <section class="hero">
+                <span class="status-pill"
+                    ><span class="pulse" aria-hidden="true"></span>public
+                    preview</span
+                >
+                <h1>
+                    Press play once.<br />
+                    <span class="accent">The queue fills itself.</span>
+                </h1>
+                <p class="dek">
+                    pdcst is a keyboard-driven terminal podcast player in
+                    pure Rust — one binary, no cloud, no account. Mark a show
+                    once and new episodes
+                    <strong>auto-fill your Up Next at publish time</strong>,
+                    interleaved so you never get a run of the same show,
+                    never touching what's playing.
+                </p>
+
+                <div class="wave" aria-hidden="true">
+                    <span style="height: 30%"></span><span style="height: 55%"></span
+                    ><span style="height: 40%"></span><span style="height: 75%"></span
+                    ><span class="hot" style="height: 95%"></span
+                    ><span class="hot" style="height: 60%"></span
+                    ><span class="hot" style="height: 85%"></span
+                    ><span style="height: 45%"></span><span style="height: 65%"></span
+                    ><span style="height: 35%"></span><span style="height: 70%"></span
+                    ><span style="height: 50%"></span><span style="height: 25%"></span
+                    ><span style="height: 60%"></span><span style="height: 40%"></span
+                    ><span style="height: 55%"></span><span style="height: 30%"></span
+                    ><span style="height: 68%"></span><span style="height: 42%"></span
+                    ><span style="height: 22%"></span>
+                </div>
+
+                <div class="install-note">
+                    <h3>Public preview — build it from source.</h3>
+                    <p>
+                        pdcst is feature-complete and in daily use by its
+                        author; the
+                        <a
+                            href="https://github.com/jhheider/pdcst"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >repository is open</a
+                        >
+                        while packaging and release land. Today that means a
+                        Rust toolchain; binaries and the one-liner follow
+                        with the first release:
+                    </p>
+                    <pre><span class="p">$</span> cargo install --git https://github.com/jhheider/pdcst pdcst
+<span class="p">$</span> curl -fsSL https://heider.cc/pdcst.sh | bash   <span class="p">#</span> soon</pre>
+                </div>
+            </section>
+
+            <!-- THE HOW -->
+            <section>
+                <p class="kicker">The core loop</p>
+                <h2>Set it, forget it, press space</h2>
+                <p>
+                    Feeds refresh on their own — a few seconds after launch,
+                    then on an interval. Episodes stream to disk and start
+                    playing after a 256&nbsp;KiB prebuffer, so playback
+                    doesn't wait for downloads. Finish an episode and the
+                    queue advances itself.
+                </p>
+
+                <img
+                    class="demo"
+                    src="./pdcst-queue.gif"
+                    alt="Recording of the pdcst TUI: browsing subscribed podcasts, queueing episodes, and the Up Next queue view"
+                    width="1000"
+                    height="560"
+                />
+                <p class="caption">
+                    A live build, real feeds: import subscriptions, browse
+                    99% Invisible, queue episodes with <code>a</code>, and
+                    the Up Next view. Auto-queued feeds fill this list
+                    themselves as episodes publish.
+                </p>
+
+                <div class="cards">
+                    <div class="card">
+                        <h3><span class="key">A</span>The auto-queue</h3>
+                        <p>
+                            The reason the project exists. Mark a feed and
+                            new episodes append or prepend themselves, capped
+                            at a depth you choose, with listen state tracked
+                            for every episode.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3><span class="key">[ ]</span>Real 1.5x</h3>
+                        <p>
+                            Pitch-corrected speed via
+                            <a href="../crates/">wsola</a>, a WSOLA
+                            time-stretch engine written for this player. No
+                            chipmunks.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3><span class="key">⏸</span>Resume anywhere</h3>
+                        <p>
+                            Position survives restarts. Unplayed, in-progress,
+                            and played states persist per episode in SQLite.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3><span class="key">⛁</span>Bounded cache</h3>
+                        <p>
+                            Episodes delete on finish; the cache respects
+                            episode and megabyte caps. Your disk is not a
+                            podcast archive unless you ask it to be.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KEYS -->
+            <section>
+                <p class="kicker">Keyboard-first</p>
+                <h2>Everything under your fingers</h2>
+                <div class="keys">
+                    <div><span>play / pause</span><kbd>space</kbd></div>
+                    <div><span>next in queue</span><kbd>n</kbd></div>
+                    <div><span>seek ±10s / ±30s</span><kbd>← → · &lt; &gt;</kbd></div>
+                    <div><span>speed ∓0.1</span><kbd>[ ]</kbd></div>
+                    <div><span>add to queue</span><kbd>a</kbd></div>
+                    <div><span>auto-queue a feed</span><kbd>A</kbd></div>
+                    <div><span>drill in / back out</span><kbd>l · h</kbd></div>
+                    <div><span>search &amp; subscribe</span><kbd>3</kbd></div>
+                    <div><span>views</span><kbd>1–4 · tab</kbd></div>
+                    <div><span>refresh feed / all</span><kbd>r · R</kbd></div>
+                    <div><span>help</span><kbd>?</kbd></div>
+                </div>
+                <p style="margin-top: 24px">
+                    Bring your subscriptions with you:
+                    <code>pdcst --import podcasts.opml</code> takes a Pocket
+                    Casts (or any) OPML export and exits;
+                    <code>--export</code> hands them back.
+                </p>
+            </section>
+
+            <!-- THE WHY -->
+            <section>
+                <p class="kicker">Why it exists</p>
+                <h2>An homage to one perfect feature</h2>
+                <blockquote>
+                    Unapologetically inspired by the inestimable Pocket
+                    Casts, whose auto-managed Up Next queue is the thing this
+                    project exists to reproduce. On a commute that queue was
+                    the whole game.
+                    <span class="cite">— the README</span>
+                </blockquote>
+                <p>
+                    Not the goal: cloud sync, discovery, or a settings-heavy
+                    UI. The edge is simple —
+                    <strong>mine, fast, self-contained, doesn't crash, and
+                    keeps the queue full.</strong>
+                </p>
+                <p>
+                    pdcst is a personal tool that runs well for its author,
+                    shared to read and to build, with no support promised.
+                    Built on ratatui, rodio, and sqlx; TLS is rustls with
+                    ring — no OpenSSL anywhere in the tree.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <span>MIT · built in Rust by <a href="../">Jacob Heider</a></span>
+            <span>
+                <a
+                    href="https://github.com/jhheider/pdcst"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub</a
+                >
+                ·
+                <a href="../crates/">meet wsola, its audio engine</a></span
+            >
+        </footer>
+    </body>
+</html>

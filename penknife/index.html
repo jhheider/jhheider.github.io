@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>penknife — a terminal home for your markdown</title>
+        <meta
+            name="description"
+            content="Browse, search, and share a folder of markdown from the terminal. Paste as rich text into Docs, email, or Slack. Sync to GitHub Gists with honest per-file drift status."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="../assets/images/dottie.jpg" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+
+    <body>
+        <header class="topbar">
+            <a class="wordmark" href="./">pen<span class="blade">knife</span></a>
+            <nav>
+                <a
+                    href="https://github.com/jhheider/penknife"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub</a
+                >
+                <a
+                    href="https://crates.io/crates/penknife"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >crates.io</a
+                >
+                <a href="../">heider.cc</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- HERO -->
+            <section class="hero">
+                <h1>Your markdown has to leave home. <em>Keep track of it.</em></h1>
+                <p class="dek">
+                    penknife is a terminal home for a folder of markdown:
+                    browse it, search it, hand any file to anyone as clean
+                    rich text — and when a copy lives on as a gist, know at a
+                    glance which side has drifted.
+                </p>
+
+                <div class="install">
+                    <div class="install-row">
+                        <span class="label">curl</span>
+                        <pre><code>curl -fsSL https://heider.cc/penknife.sh | bash</code><button class="copy-btn" type="button">copy</button></pre>
+                    </div>
+                    <div class="install-row">
+                        <span class="label">brew</span>
+                        <pre><code>brew install jhheider/tap/penknife</code><button class="copy-btn" type="button">copy</button></pre>
+                    </div>
+                    <div class="install-row">
+                        <span class="label">cargo</span>
+                        <pre><code>cargo install penknife</code><button class="copy-btn" type="button">copy</button></pre>
+                    </div>
+                </div>
+                <div class="cta-row">
+                    <a
+                        class="btn primary"
+                        href="https://github.com/jhheider/penknife/releases/latest"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Prebuilt binaries</a
+                    >
+                    <a
+                        class="btn ghost"
+                        href="https://github.com/jhheider/penknife"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >View source</a
+                    >
+                </div>
+            </section>
+
+            <!-- THE HOW: TUI -->
+            <section>
+                <p class="kicker">The tour</p>
+                <h2>One folder, at your fingertips</h2>
+                <p>
+                    Point it at an Obsidian vault, a notes directory, anywhere
+                    you keep <code>.md</code> files. Browse the tree, preview
+                    any file rendered, and full-text find across everything —
+                    all before you've signed into anything. Once files have
+                    gists, each shows its sync state, verified by content
+                    hash, not timestamp.
+                </p>
+
+                <img
+                    class="demo"
+                    src="./penknife-tui.gif"
+                    alt="Recording of the penknife TUI: browsing a markdown tree, previewing a rendered file, and full-text finding 'Rust' across the folder"
+                    width="1000"
+                    height="600"
+                />
+                <p class="caption">
+                    The real thing, recorded against the released binary:
+                    browse, preview, and <code>f</code>ind across a folder.
+                </p>
+
+                <div class="jobs">
+                    <div class="job">
+                        <h3><span class="key">p</span>Share, without an account</h3>
+                        <p>
+                            Renders the file to HTML and puts it on your
+                            clipboard as rich text. Paste into Google Docs,
+                            email, Slack, or Notion — headings, tables, bold,
+                            links intact. A deliberate snapshot; nothing to
+                            track, nothing to sign into.
+                        </p>
+                        <span class="tag">zero setup</span>
+                    </div>
+                    <div class="job">
+                        <h3><span class="key">u</span>Sync, when you want it</h3>
+                        <p>
+                            Publishes the file as a GitHub Gist and treats it
+                            like a git remote: penknife records what was
+                            pushed, notices when either side moves, and shows
+                            the drift per file. The folder stays primary.
+                        </p>
+                        <span class="tag">opt-in, per file</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- THE HOW: headless -->
+            <section>
+                <p class="kicker">Scriptable</p>
+                <h2>The same tools, headless</h2>
+                <p>
+                    Every core verb works without the TUI, with disciplined
+                    exit codes and machine-readable output —
+                    <strong>stdout is the payload, stderr is for humans</strong> —
+                    so penknife slots into pipes, hooks, and CI.
+                </p>
+
+                <div class="term">
+                    <div class="term-title">
+                        <span class="dots"
+                            ><span class="dot r"></span><span class="dot y"></span
+                            ><span class="dot g"></span
+                        ></span>
+                        zsh
+                    </div>
+                    <pre>
+<span class="p">$</span> penknife render -s notes.md &gt; notes.html   <span class="cmt"># markdown → full HTML doc</span>
+<span class="p">$</span> penknife search "Rust"                      <span class="cmt"># grep your whole folder</span>
+<span class="hl">./posts/rust-is-not-the-devil.md:1:# Rust is Not the Devil, Nor the Messiah</span>
+<span class="hl">./posts/rust-is-not-the-devil.md:3:Rust is a tool - a powerful, occasionally</span>
+<span class="p">$</span> url=$(penknife push posts/edikt-launch.md)      <span class="cmt"># publish; stdout is the URL</span>
+<span class="p">$</span> penknife status -q || echo "something drifted"  <span class="cmt"># exit codes are the API</span></pre>
+                </div>
+            </section>
+
+            <!-- FEATURES -->
+            <section>
+                <p class="kicker">Also in the drawer</p>
+                <h2>Small surface, sharp edges</h2>
+                <ul class="features">
+                    <li>
+                        <strong>Full-text search</strong> across every file
+                        (<code>f</code>), and find-and-replace across a folder
+                        with per-change review (<code>s</code>).
+                    </li>
+                    <li>
+                        <strong>Preview with syntax highlighting</strong>, open
+                        in <code>$EDITOR</code> (<code>e</code>), fuzzy file
+                        jump (<code>/</code>), paste your clipboard straight
+                        into a new file (<code>V</code>).
+                    </li>
+                    <li>
+                        <strong>Diff local against remote</strong>
+                        (<code>D</code>), pull gist changes down
+                        (<code>d</code>), link or import existing gists
+                        (<code>L</code>, <code>I</code>).
+                    </li>
+                    <li>
+                        <strong>Git-aware</strong>: a git menu (<code>g</code>)
+                        when your folder is a repo, plus sort, bulk actions,
+                        and per-key shell aliases in config.
+                    </li>
+                    <li>
+                        <strong>Local-first by principle</strong>: sync is
+                        opt-in per file and never mutates your folder behind
+                        your back.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- THE WHY -->
+            <section>
+                <p class="kicker">Why it exists</p>
+                <h2>A gist you share is a copy you can lose track of</h2>
+                <p>
+                    You write in markdown, in a folder you own. But your
+                    writing has to leave that folder: a gist link in Slack, a
+                    doc for a colleague, a post on a blog. Which version is
+                    current? Did someone edit the shared one? You can't tell
+                    without opening each destination and eyeballing it.
+                </p>
+                <blockquote>
+                    penknife treats each published gist like a git remote: it
+                    records what was pushed, notices when either side moves,
+                    and shows the drift per file. The folder is primary; the
+                    gist is a downstream copy.
+                </blockquote>
+                <p>
+                    And when the destination isn't a gist at all — a manager's
+                    Doc, an email, a Slack message — penknife hands you the
+                    writing as rich text to paste: a deliberate snapshot with
+                    nothing to track. Two jobs, kept separate on purpose.
+                </p>
+                <p>
+                    It is not a backup tool, not an editor, and not an
+                    Obsidian plugin. It's the missing seam between the folder
+                    where you write and the places your writing ends up.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <span>MIT · built in Rust by
+                <a href="../">Jacob Heider</a></span
+            >
+            <span>
+                <a
+                    href="https://github.com/jhheider/penknife"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub</a
+                >
+                ·
+                <a
+                    href="https://crates.io/crates/penknife"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >crates.io</a
+                >
+                ·
+                <a
+                    href="https://github.com/jhheider/penknife/releases/latest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >releases</a
+                >
+            </span>
+        </footer>
+
+        <script>
+            document.querySelectorAll(".copy-btn").forEach((btn) => {
+                btn.addEventListener("click", async () => {
+                    const code = btn.parentElement.querySelector("code");
+                    await navigator.clipboard.writeText(code.textContent);
+                    btn.textContent = "copied";
+                    btn.classList.add("copied");
+                    setTimeout(() => {
+                        btn.textContent = "copy";
+                        btn.classList.remove("copied");
+                    }, 1500);
+                });
+            });
+        </script>
+    </body>
+</html>

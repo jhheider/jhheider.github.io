@@ -19,10 +19,16 @@ toggle.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', String(open));
 });
 
-// Project card click: navigate to data-href unless clicking a link inside
+// Project card click: navigate to data-href unless clicking a link inside.
+// External links open a new tab; internal pages navigate in place.
 document.querySelectorAll('.project-card[data-href]').forEach(card => {
   card.addEventListener('click', e => {
     if (e.target.closest('a')) return;
-    window.open(card.dataset.href, '_blank', 'noopener,noreferrer');
+    const href = card.dataset.href;
+    if (href.startsWith('http')) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = href;
+    }
   });
 });

@@ -1,0 +1,370 @@
+/* edikt — the official notice. DIN/Bauhaus: stark, geometric, signal yellow on black. */
+
+:root {
+  --bg: #101010;
+  --fg: #ededdf;
+  --grey: #9d9b8f;
+  --line: #34342e;
+  --rule: #4a4a40;
+  --yellow: #ffd500;
+  --on-yellow: #101010;
+  --term-bg: #1a1a16;
+  --term-fg: #e8e6df;
+  --term-dim: #8a887f;
+  --diff-add: #3fb950;
+  --diff-del: #f85149;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+code,
+pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+a {
+  color: var(--fg);
+  text-decoration-color: var(--yellow);
+  text-decoration-thickness: 2px;
+}
+
+a:hover {
+  background: var(--yellow);
+  color: var(--on-yellow);
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+/* Top bar */
+.topbar {
+  border-bottom: 3px solid var(--yellow);
+}
+
+.topbar-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.wordmark:hover {
+  background: none;
+}
+
+.wordmark .mark {
+  background: var(--yellow);
+  color: var(--on-yellow);
+  padding: 0 4px;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 22px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.topbar nav a {
+  text-decoration: none;
+  color: var(--grey);
+}
+
+.topbar nav a:hover {
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+
+/* Hero */
+.hero {
+  padding: 72px 0 44px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 8vw, 78px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  max-width: 12em;
+}
+
+.hero h1 .hl {
+  background: var(--yellow);
+  color: var(--on-yellow);
+  padding: 0 0.12em;
+}
+
+.hero .dek {
+  margin-top: 26px;
+  font-size: 19px;
+  color: var(--grey);
+  max-width: 36em;
+}
+
+.hero .dek strong {
+  color: var(--fg);
+}
+
+/* Install */
+.install {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.install pre {
+  background: var(--term-bg);
+  color: var(--term-fg);
+  padding: 12px 14px;
+  font-size: 13.5px;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--rule);
+}
+
+.copy-btn {
+  background: none;
+  border: 1px solid var(--term-dim);
+  color: var(--term-dim);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 2px 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  color: var(--term-fg);
+  border-color: var(--term-fg);
+}
+
+.copy-btn.copied {
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.hero .fine {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--grey);
+}
+
+/* Sections */
+section {
+  padding: 52px 0;
+  border-top: 3px solid var(--rule);
+}
+
+.kicker {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  padding: 3px 10px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  max-width: 20em;
+}
+
+section > p {
+  color: var(--grey);
+  max-width: 42em;
+  margin-bottom: 14px;
+}
+
+section > p strong {
+  color: var(--fg);
+}
+
+section > p em {
+  color: var(--fg);
+}
+
+/* Terminal / code blocks */
+.term {
+  background: var(--term-bg);
+  color: var(--term-fg);
+  margin: 26px 0;
+  border: 1px solid var(--rule);
+  box-shadow: 6px 6px 0 var(--yellow);
+}
+
+.term pre {
+  padding: 18px 20px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+
+.term .p { color: var(--yellow); font-weight: 700; }
+.term .cmt { color: var(--term-dim); }
+.term .add { color: var(--diff-add); }
+.term .del { color: var(--diff-del); }
+.term .out { color: #9fc6e8; }
+
+.caption {
+  font-size: 14px;
+  color: var(--grey);
+  margin-top: -14px;
+  margin-bottom: 26px;
+}
+
+/* Format chips */
+.formats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  border: 2px solid var(--rule);
+  padding: 6px 14px;
+}
+
+.chip.on {
+  background: var(--yellow);
+  color: var(--on-yellow);
+  border-color: var(--yellow);
+}
+
+/* Rules list */
+.rules {
+  list-style: none;
+  margin-top: 20px;
+  max-width: 44em;
+  counter-reset: rule;
+}
+
+.rules li {
+  counter-increment: rule;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 3.2em 1fr;
+  gap: 12px;
+  color: var(--grey);
+}
+
+.rules li::before {
+  content: "§" counter(rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+.rules li strong {
+  color: var(--fg);
+}
+
+.rules code {
+  background: rgba(237, 237, 223, 0.1);
+  padding: 1px 5px;
+  font-size: 13.5px;
+}
+
+/* Pull quote */
+blockquote {
+  border-left: 6px solid var(--yellow);
+  padding: 4px 0 4px 20px;
+  margin: 22px 0;
+  font-size: 19px;
+  font-weight: 500;
+  max-width: 36em;
+}
+
+/* Footer */
+footer {
+  border-top: 3px solid var(--yellow);
+}
+
+.footer-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 26px 24px 48px;
+  font-size: 14px;
+  color: var(--grey);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--grey);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 48px;
+  }
+
+  .term {
+    box-shadow: 4px 4px 0 var(--yellow);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

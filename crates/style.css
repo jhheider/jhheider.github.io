@@ -1,0 +1,75 @@
+/* /crates/ — extends the root design language (loaded after ../css/*.css). */
+
+.page-header {
+  padding-top: 60px;
+  margin-bottom: var(--space-2xl);
+}
+
+.crates-nav {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.crates-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.crates-nav a:hover {
+  color: var(--accent-blue);
+}
+
+.crate-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.version {
+  font-size: 12px;
+  color: var(--accent-green);
+  margin-left: auto;
+}
+
+.card-body .use-angle {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.card-body pre {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  overflow-x: auto;
+  color: var(--text-primary);
+}
+
+.card-body pre .p {
+  color: var(--accent-green);
+  user-select: none;
+}
+
+.subcrates {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.subcrates code {
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.pending .card-filename::after {
+  content: " · unreleased";
+  color: var(--dot-yellow);
+}
+
+.section-note {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: var(--space-lg);
+}
