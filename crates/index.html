@@ -75,10 +75,16 @@
                             <p>
                                 Unofficial typed client for
                                 <a href="https://agentmail.to" class="inline-link" target="_blank" rel="noopener noreferrer">AgentMail</a>,
-                                the email API for agents: full API v0 coverage
-                                (inboxes, threads, messages, drafts, webhooks,
-                                domains, and more) with typed errors, built-in
-                                pagination, automatic retries, and optional Svix
+                                the email API for agents: full 1:1 parity with
+                                the official SDKs across all three API scopes,
+                                reached through typed scope handles -
+                                <code>client.org()</code>,
+                                <code>client.inbox(id)</code>,
+                                <code>client.pod(id)</code> - so a resource that
+                                doesn't belong to a scope simply doesn't compile
+                                there. Typed errors, built-in pagination
+                                (including <code>list_all_*</code> drain
+                                helpers), automatic retries, and optional Svix
                                 webhook verification. Imported as
                                 <code>agentmail</code>; rustls + ring, no C.
                             </p>
