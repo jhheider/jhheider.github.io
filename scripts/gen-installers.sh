@@ -21,4 +21,5 @@ gen() {
 
 gen penknife jhheider/penknife
 gen edikt jhheider/edikt
+gen scriptbox jhheider/scriptbox
 # gen pdcst jhheider/pdcst   # enable when the repo goes public with releases
