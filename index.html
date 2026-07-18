@@ -181,7 +181,9 @@
                                 reads the whole file at invoke, then hands that to
                                 the real interpreter, so editing a running script
                                 can't change what executes past the current line.
-                                Optional sha256 checksum pinning. bash, zsh, dash,
+                                Optional sha256 checksum pinning, and a
+                                subscripts mode extends the same immutability to
+                                the scripts it sources and runs. bash, zsh, dash,
                                 ksh; macOS and Linux.
                             </p>
                             <a
