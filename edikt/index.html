@@ -180,6 +180,42 @@
                 </p>
             </section>
 
+            <!-- BEYOND -->
+            <section>
+                <span class="kicker">Exhibit C</span>
+                <h2>Beyond config files</h2>
+                <p>
+                    The same surgical edit reaches places that aren't config
+                    files at all. edikt edits the metadata block of a Markdown
+                    file and leaves the prose byte-for-byte opaque, reads the
+                    PEP 723 <code># /// script</code> block a Python or shell
+                    script carries (uv, scriptbox) and re-applies its comment
+                    prefix, and treats a <code>---</code>-separated YAML stream,
+                    a Kubernetes bundle, as first-class documents.
+                </p>
+
+                <div class="term">
+                    <pre>
+<span class="cmt"># Markdown frontmatter, the body stays untouched</span>
+<span class="p">$</span> edikt -i '.draft = false' post.md
+
+<span class="cmt"># PEP 723 / scriptbox, bump the pin, the code below untouched</span>
+<span class="p">$</span> edikt -t frontmatter -i '.["requires-python"] = "&gt;=3.12"' app.py
+
+<span class="cmt"># multi-document YAML, one edit maps over every ---document</span>
+<span class="p">$</span> edikt -i '.metadata.labels.env = "prod"' k8s.yaml
+
+<span class="cmt"># ...by content, or by position (^dN, 0-based, strict)</span>
+<span class="p">$</span> edikt -i 'select(.kind == "Service") | .spec.type = "LoadBalancer"' k8s.yaml
+<span class="p">$</span> edikt '^d1.spec.replicas' k8s.yaml</pre>
+                </div>
+                <p class="caption">
+                    A frontmatter block is config embedded in prose; a manifest
+                    stream is many documents in one file. edikt reaches both
+                    without disturbing a byte around them.
+                </p>
+            </section>
+
             <!-- RULES -->
             <section>
                 <span class="kicker">Provisions</span>
