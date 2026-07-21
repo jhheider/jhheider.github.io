@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>penknife - a terminal home for your markdown</title>
+        <title>penknife: a terminal home for your markdown</title>
         <meta
             name="description"
             content="Browse, search, and share a folder of markdown from the terminal. Paste as rich text into Docs, email, or Slack. Sync to GitHub Gists with honest per-file drift status."
@@ -47,8 +47,8 @@
                 <p class="dek">
                     penknife is a terminal home for a folder of markdown:
                     browse it, search it, hand any file to anyone as clean
-                    rich text - and when a copy lives on as a gist, know at a
-                    glance which side has drifted.
+                    rich text. When a copy lives on as a gist, know at a glance
+                    which side has drifted.
                 </p>
 
                 <div class="install">
@@ -114,7 +114,7 @@
                         <p>
                             Renders the file to HTML and puts it on your
                             clipboard as rich text. Paste into Google Docs,
-                            email, Slack, or Notion - headings, tables, bold,
+                            email, Slack, or Notion, with headings, tables, bold, and
                             links intact. A deliberate snapshot; nothing to
                             track, nothing to sign into.
                         </p>
@@ -156,7 +156,7 @@
 <span class="p">$</span> penknife render -s notes.md &gt; notes.html   <span class="cmt"># markdown → full HTML doc</span>
 <span class="p">$</span> penknife search "Rust"                      <span class="cmt"># grep your whole folder</span>
 <span class="hl">./posts/rust-is-not-the-devil.md:1:# Rust is Not the Devil, Nor the Messiah</span>
-<span class="hl">./posts/rust-is-not-the-devil.md:3:Rust is a tool - a powerful, occasionally</span>
+<span class="hl">./posts/rust-is-not-the-devil.md:3:Rust is a tool, a powerful, occasionally</span>
 <span class="p">$</span> url=$(penknife push posts/edikt-launch.md)      <span class="cmt"># publish; stdout is the URL</span>
 <span class="p">$</span> penknife status -q || echo "something drifted"  <span class="cmt"># exit codes are the API</span></pre>
                 </div>
@@ -215,8 +215,8 @@
                     gist is a downstream copy.
                 </blockquote>
                 <p>
-                    And when the destination isn't a gist at all - a manager's
-                    Doc, an email, a Slack message - penknife hands you the
+                    And when the destination isn't a gist at all (a manager's Doc,
+                    an email, a Slack message), penknife hands you the
                     writing as rich text to paste: a deliberate snapshot with
                     nothing to track. Two jobs, kept separate on purpose.
                 </p>
