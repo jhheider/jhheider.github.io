@@ -155,10 +155,11 @@
                             <p>
                                 Markdown task running as a library: parse a
                                 <code>tasks.md</code> (heading = task, fenced
-                                block = script, <code>Key: value</code> metadata)
-                                and build a runnable invocation. Dependency-free
-                                and pure, so an editor or TUI can embed it and
-                                keep execution off its render thread. The
+                                block = script, <code>Key: value</code> metadata),
+                                list its jobs and their argument signatures, and
+                                run one. Dependency-free, with the execution
+                                mechanics kept inside, so an editor or TUI embeds a
+                                narrow list, describe, and run surface. The
                                 <a href="https://github.com/jhheider/mdtask" class="inline-link">mdtask</a>
                                 CLI and its MCP server are thin wrappers over it.
                             </p>
