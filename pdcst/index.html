@@ -5,8 +5,14 @@
         <title>pdcst: the queue fills itself</title>
         <meta
             name="description"
-            content="A keyboard-driven terminal podcast player in pure Rust. An auto-managed Up Next queue, pitch-corrected speed, and streaming playback. Now in public preview."
+            content="A keyboard-driven terminal podcast player in pure Rust. An auto-managed Up Next queue, pitch-corrected speed, and streaming playback."
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://heider.cc/pdcst/" />
+        <meta property="og:title" content="pdcst: the queue fills itself" />
+        <meta property="og:description" content="A keyboard-driven terminal podcast player in pure Rust. An auto-managed Up Next queue, pitch-corrected speed, and streaming playback." />
+        <meta property="og:image" content="https://heider.cc/pdcst/pdcst-queue.png" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="../assets/images/dottie.jpg" />
 
@@ -39,8 +45,7 @@
             <!-- HERO -->
             <section class="hero">
                 <span class="status-pill"
-                    ><span class="pulse" aria-hidden="true"></span>public
-                    preview</span
+                    ><span class="pulse" aria-hidden="true"></span>macOS + linux</span
                 >
                 <h1>
                     Press play once.<br />
@@ -71,22 +76,18 @@
                 </div>
 
                 <div class="install-note">
-                    <h3>Public preview: build it from source.</h3>
+                    <h3>Install</h3>
                     <p>
-                        pdcst is feature-complete and in daily use by its
-                        author; the
+                        One binary for macOS (Apple silicon and Intel) and
+                        Linux x86_64, from Homebrew or the
                         <a
-                            href="https://github.com/jhheider/pdcst"
+                            href="https://github.com/jhheider/pdcst/releases/latest"
                             target="_blank"
                             rel="noopener noreferrer"
-                            >repository is open</a
-                        >
-                        while packaging and release land. Today that means a
-                        Rust toolchain; binaries and the one-liner follow
-                        with the first release:
+                            >latest release</a
+                        >.
                     </p>
-                    <pre><span class="p">$</span> cargo install --git https://github.com/jhheider/pdcst pdcst
-<span class="p">$</span> curl -fsSL https://heider.cc/pdcst.sh | bash   <span class="p">#</span> soon</pre>
+                    <pre><span class="p">$</span> brew install jhheider/tap/pdcst</pre>
                 </div>
             </section>
 
