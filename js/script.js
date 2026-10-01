@@ -53,3 +53,16 @@ document.querySelectorAll('[data-crate]').forEach(async el => {
     el.remove();
   }
 });
+
+// Copy buttons on install one-liners
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(btn.parentElement.querySelector('code').textContent);
+    btn.textContent = 'copied';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'copy';
+      btn.classList.remove('copied');
+    }, 1500);
+  });
+});

@@ -137,3 +137,105 @@ blockquote em {
 .footer-link:hover {
   color: var(--accent-blue);
 }
+
+.hero-whoami {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+h1.hero-title {
+  font-size: clamp(30px, 6.5vw, 54px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+  max-width: 14em;
+}
+
+.bracket-link {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.bracket-link::before {
+  content: "[ ";
+  color: var(--tree-branch);
+}
+
+.bracket-link::after {
+  content: " ]";
+  color: var(--tree-branch);
+}
+
+.bracket-link:hover {
+  color: var(--accent-green);
+}
+
+.flagship-name {
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.flagship-name a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.flagship-name a:focus-visible {
+  outline: none;
+}
+
+.flagship-name a:focus-visible::after {
+  outline: 2px solid var(--brand);
+  outline-offset: -2px;
+  border-radius: 8px;
+}
+
+.flagship-pitch {
+  font-weight: 700;
+}
+
+.flagship .card-body p:not(.flagship-pitch) {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.install code {
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--text-primary);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.install code::before {
+  content: "$ ";
+  color: var(--accent-green);
+}
+
+.flagship-more {
+  color: var(--brand);
+  font-size: 13px;
+}
+
+.subsection-title {
+  font-size: 17px;
+  color: var(--text-primary);
+}
+
+.tree-meta a {
+  color: var(--tree-branch);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.tree-meta a:hover {
+  color: var(--accent-blue);
+}
+
+.section-footnote {
+  color: var(--text-secondary);
+  font-size: 14px;
+}

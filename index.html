@@ -3,38 +3,41 @@
     <head>
         <meta charset="utf-8" />
         <link rel="icon" href="./assets/images/dottie.jpg" />
-        <title>heider.cc</title>
+        <title>heider.cc: small, sharp tools for the terminal</title>
         <meta
             name="description"
-            content="Jacob Heider: software developer, Rust enthusiast, open-source contributor."
+            content="Jacob Heider builds Rust CLIs and TUIs that do one job well: edikt, penknife, pdcst, scriptbox, mdtask and more."
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://heider.cc/" />
+        <meta property="og:title" content="heider.cc: small, sharp tools for the terminal" />
+        <meta
+            property="og:description"
+            content="Rust CLIs and TUIs that do one job well: edikt, penknife, pdcst, scriptbox, mdtask and more."
+        />
+        <meta name="twitter:card" content="summary" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
             rel="stylesheet"
         />
-
         <link rel="stylesheet" href="./css/layout.css" />
         <link rel="stylesheet" href="./css/typography.css" />
         <link rel="stylesheet" href="./css/utilities.css" />
-
         <script defer src="./js/script.js"></script>
     </head>
-
     <body>
         <!-- NAV -->
         <nav class="navbar">
             <a class="nav-title-link" href="#hero"
                 ><span class="prompt">$</span> heider.cc</a
             >
-            <div class="nav-links">
-                <a href="#ecosystem">Ecosystem</a>
-                <a href="#projects">Projects</a>
+            <div class="nav-links" id="nav-links">
+                <a href="#tools">Tools</a>
                 <a href="./crates/">Crates</a>
-                <a href="#philosophy">Philosophy</a>
+                <a href="#philosophy">On Software</a>
                 <a href="#about">About</a>
                 <a href="mailto:jhheider@gmail.com">Contact</a>
             </div>
@@ -51,15 +54,237 @@
         <main>
             <!-- HERO -->
             <section id="hero" class="section">
-                <h1 class="terminal-line">
-                    <span class="prompt">&gt;</span> Hey, I'm
-                    <span class="accent">@jhheider</span>.<span
+                <p class="hero-whoami">
+                    <span class="prompt">&gt;</span> whoami
+                    <span class="accent">@jhheider</span>
+                </p>
+                <h1 class="hero-title">
+                    Small, sharp tools for the terminal.<span
                         class="cursor"
                         aria-hidden="true"
                         >_</span
                     >
                 </h1>
                 <p class="tagline">
+                    I'm Jacob Heider. I write Rust CLIs and TUIs that do one
+                    job, do it well, and leave alone everything you didn't
+                    ask them to touch. I pay the cost of correctness up front;
+                    the compiler is my first code reviewer.
+                </p>
+                <div class="hero-links">
+                    <a href="#tools" class="bracket-link">tools</a>
+                    <a href="./crates/" class="bracket-link">crates</a>
+                    <a
+                        href="https://github.com/jhheider"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="bracket-link"
+                        >github</a
+                    >
+                </div>
+            </section>
+
+            <!-- TOOLS -->
+            <section id="tools" class="section">
+                <h2 class="section-title">
+                    <span class="prompt">#</span> Tools
+                </h2>
+                <div class="flagship-grid">
+                    <article class="flagship" style="--brand: #ffd500">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">config editor</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="flagship-name">
+                                <a href="./edikt/" class="stretched">edikt</a>
+                            </h3>
+                            <p class="flagship-pitch">
+                                Edit config files without reflowing them.
+                            </p>
+                            <p>
+                                Change one value in TOML, YAML, JSONC, KDL, INI
+                                or .env, and every other byte, comments
+                                included, stays exactly where it was.
+                                jq-flavored paths, sed-shaped flags.
+                            </p>
+                            <pre class="install"><code>brew install jhheider/tap/edikt</code><button class="copy-btn" type="button">copy</button></pre>
+                            <span class="flagship-more">product page &rarr;</span>
+                        </div>
+                    </article>
+
+                    <article class="flagship" style="--brand: #e8594a">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">markdown home</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="flagship-name">
+                                <a href="./penknife/" class="stretched"
+                                    >penknife</a
+                                >
+                            </h3>
+                            <p class="flagship-pitch">
+                                A terminal home for your markdown.
+                            </p>
+                            <p>
+                                Browse and search a folder of notes, paste any
+                                file into Docs, email or Slack as clean rich
+                                text, and sync to GitHub Gists with honest
+                                drift status.
+                            </p>
+                            <pre class="install"><code>brew install jhheider/tap/penknife</code><button class="copy-btn" type="button">copy</button></pre>
+                            <span class="flagship-more">product page &rarr;</span>
+                        </div>
+                    </article>
+
+                    <article class="flagship" style="--brand: #ffb454">
+                        <div class="card-titlebar">
+                            <span class="card-dots" aria-hidden="true"
+                                ><span class="dot red"></span
+                                ><span class="dot yellow"></span
+                                ><span class="dot green"></span
+                            ></span>
+                            <span class="card-filename">podcast player</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="flagship-name">
+                                <a href="./pdcst/" class="stretched">pdcst</a>
+                            </h3>
+                            <p class="flagship-pitch">The queue fills itself.</p>
+                            <p>
+                                A keyboard-driven podcast player. Mark a show
+                                once and new episodes land in Up Next as they
+                                publish, interleaved so no show hogs the queue.
+                                One binary, no account.
+                            </p>
+                            <pre class="install"><code>brew install jhheider/tap/pdcst</code><button class="copy-btn" type="button">copy</button></pre>
+                            <span class="flagship-more">product page &rarr;</span>
+                        </div>
+                    </article>
+                </div>
+
+                <h3 class="subsection-title">
+                    <span class="prompt">##</span> Also in the toolbox
+                </h3>
+                <ul class="tree" role="list">
+                    <li class="tree-item">
+                        <a
+                            href="https://github.com/jhheider/scriptbox"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >scriptbox</a
+                        >
+                        <span class="tree-desc"
+                            >Runs a shell script from an immutable copy, so
+                            editing it mid-run can't change what executes.
+                            Optional checksum pinning.</span
+                        >
+                        <span class="tree-meta"
+                            ><a href="https://github.com/jhheider/scriptbox/releases/latest" target="_blank" rel="noopener noreferrer">releases</a></span
+                        >
+                    </li>
+                    <li class="tree-item">
+                        <a
+                            href="https://github.com/jhheider/mdtask"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >mdtask</a
+                        >
+                        <span class="tree-desc"
+                            >Markdown task runner: a heading is a task, its
+                            first code block is the script. Embeddable library,
+                            CLI, and an MCP server for agents.</span
+                        >
+                        <span class="tree-meta"
+                            ><a href="https://crates.io/crates/mdtask" target="_blank" rel="noopener noreferrer">crates.io</a></span
+                        >
+                    </li>
+                    <li class="tree-item">
+                        <a
+                            href="https://github.com/jhheider/gpg-inspector"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >gpg-inspector</a
+                        >
+                        <span class="tree-desc"
+                            >TUI for exploring OpenPGP packet structure, RFC
+                            4880 and RFC 9580. Built for key analysis at
+                            tea.xyz.</span
+                        >
+                        <span class="tree-meta"
+                            ><a href="https://crates.io/crates/gpg-inspector" target="_blank" rel="noopener noreferrer">crates.io</a></span
+                        >
+                    </li>
+                    <li class="tree-item">
+                        <a
+                            href="https://github.com/jhheider/govee-tui"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >govee-tui</a
+                        >
+                        <span class="tree-desc"
+                            >Keyboard control for Govee smart lights, without
+                            the phone app.</span
+                        >
+                        <span class="tree-meta"
+                            ><a href="https://crates.io/crates/govee-tui" target="_blank" rel="noopener noreferrer">crates.io</a></span
+                        >
+                    </li>
+                    <li class="tree-item">
+                        <a
+                            href="https://github.com/jhheider/semverator"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >semverator</a
+                        >
+                        <span class="tree-desc"
+                            >Semantic version comparison from the command line;
+                            grew into the semver core of pkgx's Rust
+                            rewrite.</span
+                        >
+                        <span class="tree-meta"
+                            ><a href="https://crates.io/crates/semverator" target="_blank" rel="noopener noreferrer">crates.io</a></span
+                        >
+                    </li>
+                    <li class="tree-item last">
+                        <a
+                            href="https://github.com/jhheider/tea-gpg-wallet"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="accent-link"
+                            >tea-gpg-wallet</a
+                        >
+                        <span class="tree-desc"
+                            >CLI for tea.xyz's GPG wallet payments, for payees
+                            and payors alike.</span
+                        >
+                    </li>
+                </ul>
+                <p class="section-footnote">
+                    Libraries live on <a href="./crates/" class="accent-link">/crates/</a>.
+                </p>
+            </section>
+
+            <!-- DAY JOB -->
+            <section id="ecosystem" class="section">
+                <h2 class="section-title">
+                    <span class="prompt">#</span> Day job
+                </h2>
+                <p class="section-intro">
                     First engineer at
                     <a
                         href="https://tea.xyz"
@@ -67,26 +292,14 @@
                         rel="noopener noreferrer"
                         class="accent-link"
                         >tea.xyz</a
-                    >. Building the
+                    >. Most of my open-source hours go into
                     <a
                         href="https://pkgx.sh"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="accent-link"
                         >pkgx</a
-                    >
-                    ecosystem in Rust.<br />I pay the cost of correctness up
-                    front; the compiler is my first code reviewer.
-                </p>
-            </section>
-
-            <!-- ECOSYSTEM -->
-            <section id="ecosystem" class="section">
-                <h2 class="section-title">
-                    <span class="prompt">#</span> The pkgx Ecosystem
-                </h2>
-                <p class="section-intro">
-                    The platform I build and build with.
+                    >:
                 </p>
                 <ul class="tree" role="list">
                     <li class="tree-item">
@@ -155,373 +368,6 @@
                         >
                     </li>
                 </ul>
-            </section>
-
-            <!-- PROJECTS -->
-            <section id="projects" class="section">
-                <h2 class="section-title">
-                    <span class="prompt">#</span> Featured Projects
-                </h2>
-                <div class="project-grid">
-                    <div
-                        class="project-card"
-                        data-href="https://github.com/jhheider/scriptbox"
-                    >
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
-                            <span class="card-filename">scriptbox</span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                Runs a shell script from an immutable copy: it
-                                reads the whole file at invoke, then hands that to
-                                the real interpreter, so editing a running script
-                                can't change what executes past the current line.
-                                Optional sha256 checksum pinning, and a
-                                subscripts mode extends the same immutability to
-                                the scripts it sources and runs. bash, zsh, dash,
-                                ksh; macOS and Linux.
-                            </p>
-                            <a
-                                href="https://github.com/jhheider/scriptbox"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >View on GitHub</a
-                            >
-                            &middot;
-                            <a
-                                href="https://github.com/jhheider/scriptbox/releases/latest"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >Releases</a
-                            >
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card"
-                        data-href="./edikt/"
-                    >
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
-                            <span class="card-filename">edikt</span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                Lossless, format-preserving config editor for
-                                JSONC, TOML, YAML, KDL, INI, and .env. Change one
-                                value (or one comment) and every other byte,
-                                comments, indentation, quoting, trailing commas,
-                                survives byte-for-byte. jq-flavored expressions,
-                                sed-shaped execution. Reaches Markdown and PEP 723
-                                frontmatter and multi-document YAML streams too.
-                                Published on crates.io.
-                            </p>
-                            <a href="./edikt/" class="card-link"
-                                >Product page</a
-                            >
-                            &middot;
-                            <a
-                                href="https://github.com/jhheider/edikt"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >View on GitHub</a
-                            >
-                            &middot;
-                            <a
-                                href="https://crates.io/crates/edikt"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >crates.io</a
-                            >
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card"
-                        data-href="./penknife/"
-                    >
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
-                            <span class="card-filename">penknife</span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                A fast terminal home for your markdown writing.
-                                Browse and search a folder, share any file as
-                                clean rich text that pastes into Docs, email, or
-                                Slack with formatting intact, and sync to GitHub
-                                Gists with honest per-file drift status.
-                                Published on crates.io.
-                            </p>
-                            <a href="./penknife/" class="card-link"
-                                >Product page</a
-                            >
-                            &middot;
-                            <a
-                                href="https://github.com/jhheider/penknife"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >View on GitHub</a
-                            >
-                            &middot;
-                            <a
-                                href="https://crates.io/crates/penknife"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >crates.io</a
-                            >
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card"
-                        data-href="./pdcst/"
-                    >
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
-                            <span class="card-filename">pdcst</span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                A keyboard-driven terminal podcast player in
-                                pure Rust, one binary, no cloud, no account.
-                                Mark a show once and new episodes auto-fill
-                                your Up Next at publish time, interleaved so you
-                                never get a run of the same show. Feature
-                                complete and in daily use.
-                            </p>
-                            <a href="./pdcst/" class="card-link"
-                                >Product page</a
-                            >
-                            &middot;
-                            <a
-                                href="https://github.com/jhheider/pdcst"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >View on GitHub</a
-                            >
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card"
-                        data-href="https://github.com/jhheider/gpg-inspector"
-                    >
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
-                            <span class="card-filename">gpg-inspector</span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                Rust TUI for inspecting GPG messages. Built to
-                                aid key analysis for
-                                <a
-                                    href="https://tea.xyz"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="inline-link"
-                                    >tea.xyz</a
-                                >'s blockchain. Parse and explore OpenPGP
-                                packet structure interactively. RFC 4880 + RFC
-                                9580. Published on crates.io.
-                            </p>
-                            <a
-                                href="https://github.com/jhheider/gpg-inspector"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >View on GitHub</a
-                            >
-                            &middot;
-                            <a
-                                href="https://crates.io/crates/gpg-inspector"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >crates.io</a
-                            >
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card"
-                        data-href="https://github.com/jhheider/mdtask"
-                    >
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
-                            <span class="card-filename">mdtask</span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                Embeddable, execution-capable markdown task
-                                runner for Rust. A heading is a task; the first
-                                fenced block is its script. The dependency-free
-                                <code>mdtask-core</code> library parses a task file
-                                and runs its jobs, exposing a narrow list,
-                                describe, and run surface so an editor or TUI can
-                                embed it without touching the execution mechanics.
-                                A thin CLI runs them and serves agent-allowed tasks
-                                over MCP. Published on crates.io.
-                            </p>
-                            <a
-                                href="https://github.com/jhheider/mdtask"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >View on GitHub</a
-                            >
-                            &middot;
-                            <a
-                                href="https://crates.io/crates/mdtask"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >crates.io</a
-                            >
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card"
-                        data-href="https://github.com/jhheider/govee-tui"
-                    >
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
-                            <span class="card-filename">govee-tui</span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                A clean, colorful terminal UI and CLI for
-                                controlling Govee smart-home lights from the
-                                keyboard, without the phone app. Fresh v0.1.0,
-                                installable via Homebrew.
-                            </p>
-                            <a
-                                href="https://github.com/jhheider/govee-tui"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >View on GitHub</a
-                            >
-                            &middot;
-                            <a
-                                href="https://crates.io/crates/govee-tui"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >crates.io</a
-                            >
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card"
-                        data-href="https://github.com/jhheider/semverator"
-                    >
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
-                            <span class="card-filename">semverator</span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                Rust CLI for semantic version comparison.
-                                Originally built to interface with pkgx's semver
-                                implementation via the command line, then
-                                became the core library for the v2 Rust rewrite.
-                            </p>
-                            <a
-                                href="https://github.com/jhheider/semverator"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >View on GitHub</a
-                            >
-                            &middot;
-                            <a
-                                href="https://crates.io/crates/semverator"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >crates.io</a
-                            >
-                        </div>
-                    </div>
-
-                    <div
-                        class="project-card"
-                        data-href="https://github.com/jhheider/tea-gpg-wallet"
-                    >
-                        <div class="card-titlebar">
-                            <span class="card-dots" aria-hidden="true"
-                                ><span class="dot red"></span
-                                ><span class="dot yellow"></span
-                                ><span class="dot green"></span
-                            ></span>
-                            <span class="card-filename">tea-gpg-wallet</span>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                CLI interface for tea's GPG wallet system. Lets
-                                payees and payors interact with
-                                <a
-                                    href="https://tea.xyz"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="inline-link"
-                                    >tea.xyz</a
-                                >'s blockchain payment infrastructure from the
-                                command line.
-                            </p>
-                            <a
-                                href="https://github.com/jhheider/tea-gpg-wallet"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="card-link"
-                                >View on GitHub</a
-                            >
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <!-- PHILOSOPHY -->
@@ -610,7 +456,6 @@
             </section>
         </main>
 
-        <!-- FOOTER -->
         <footer id="footer">
             <a
                 href="https://github.com/jhheider"
